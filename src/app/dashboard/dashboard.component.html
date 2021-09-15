@@ -1,0 +1,11 @@
+<div class="ferments-menu">
+  <a *ngFor="let ferment of ferments"
+  routerLink="/detail/{{ferment.id}}">
+    <h2>{{ferment.lotNumber | uppercase}}</h2>
+    <p class="description">{{ferment.type}}</p>
+  </a>
+</div>
+<!--<button (click)="getFerments('ferments')">dashboard</button>
+<button (click)="getFerments('archive')">archive</button>-->
+
+<a routerLink="/new-fermentation-project">New Ferment</a>

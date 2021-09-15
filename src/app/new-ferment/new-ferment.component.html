@@ -1,0 +1,35 @@
+<div id=ferment-detail>
+    <form id="newFermentForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="formSection">
+            <label>Ferment type</label>
+            <select [formControlName]="'newType'" required>
+                <option *ngFor="let type of fermentTypes" [value]="type">{{type}}</option>
+            </select>
+        </div>
+        <div class="formSection">
+            <label>Started on: </label>
+            <input [formControlName]="'newStartDate'" type="date" required>
+        </div>
+        <div class="formSection">
+            <label>Theoretical fermentation duration required: </label>
+            <input [formControlName]="'newDurationValue'" type="number" required>
+            <select [formControlName]="'newDurationUnit'" required>
+                <option value="days">day(s)</option>
+                <option value="weeks">week(s)</option>
+                <option value="months">Month(s)</option>
+            </select>
+        </div>
+        <div class="formSection">
+            <label>Parameters to monitor: </label><br> <!--TODO : find better labels-->
+            <label *ngFor="let param of physicalParameters; let i = index">
+                <input type="checkbox" (change)="onCheckboxChange(param, $event)" />{{param}}<br>
+            </label>
+        </div>
+        <div class="formSection">  
+            <button class="add-button" type="submit">
+                Ferment!
+            </button>
+        </div>
+    </form>
+</div>
+<button (click)="goBack()">go back</button>

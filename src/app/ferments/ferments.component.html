@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let ferment of ferments">
+        <a routerLink="/detail/{{ferment.id}}">
+            <span class="badge">{{ferment.id}}</span> {{ferment.lotNumber}}
+        </a>
+        <button class="delete" title="delete ferment"
+  (click)="delete(ferment)">x</button>
+    </li>
+</ul>

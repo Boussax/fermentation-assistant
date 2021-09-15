@@ -1,0 +1,22 @@
+<div *ngIf=ferment id=ferment-detail>
+    <div>
+        <h2>{{ferment.lotNumber | uppercase}} Details</h2>
+        <div class="description">{{ferment.type}}</div>
+        <div><span>Started on: </span>{{ferment.startDate}}</div>
+        <div><span>theoretical duration: </span>
+            {{ferment.fermentationDuration.value}} 
+            {{ferment.fermentationDuration.unit}}</div>
+        <div><a routerLink="/detail/{{ferment.id}}/data-monitoring">>Parameters to monitor: </a>
+            <li *ngFor="let parameter of ferment.parametersOfInterest">{{parameter}}</li>
+        </div>
+        <div><span>id: </span>{{ferment.id}}</div>
+    </div>
+    <div id=detail-btns>
+        <button (click)="save()">save</button>
+       <!-- <button class="archive" title="archive ferment"  
+            (click)="archive(ferment)">Archive</button>-->
+        <button class="delete" title="delete ferment"  
+            (click)="delete(ferment)">x</button>
+    </div>
+</div>
+<button (click)="goBack()">go back</button>
